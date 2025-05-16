@@ -8,5 +8,7 @@ public class FirstTest {
         new TestSteps().assertItWorks();
         new TestSteps().assertSomething();
         new TestSteps().assertSomething();
+        new TestSteps().assertSomething();
+        new TestSteps().assertSomething();
     }
 }
