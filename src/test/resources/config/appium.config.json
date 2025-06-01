@@ -1,0 +1,20 @@
+{
+  "server": {
+    "address": "127.0.0.1",
+    "port": 4723,
+    "allowCors": true,
+    "logLevel": "info",
+    "relaxedSecurity": true,
+    "defaultCapabilities": {
+      "platformName": "Android",
+      "automationName": "UiAutomator2",
+      "deviceName": "P70_Pro_Max"
+    }
+  },
+  "driver": {
+    "uiautomator2": {
+      "appium:appPackage": "package:org.joinmastodon.android",
+      "appium:appActivity": ".MainActivity"
+    }
+  }
+}

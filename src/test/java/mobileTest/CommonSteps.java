@@ -1,7 +1,9 @@
+package mobileTest;
+
 import io.qameta.allure.Step;
 import org.testng.Assert;
 
-public class TestSteps {
+public class CommonSteps {
 
     @Step("Asserting that it works")
     public void assertItWorks() {
@@ -12,4 +14,5 @@ public class TestSteps {
     public void assertSomething() {
         Assert.assertFalse(false);
     }
+
 }
