@@ -1,8 +1,9 @@
-package mobileTest;
+package mobileTest.tests;
 
+import mobileTest.steps.CommonSteps;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.MyAllureListener;
+import mobileTest.utils.MyAllureListener;
 
 
 @Listeners(MyAllureListener.class)

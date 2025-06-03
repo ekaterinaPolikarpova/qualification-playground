@@ -1,4 +1,4 @@
-package utils;
+package mobileTest.utils;
 
 import io.qameta.allure.Attachment;
 import org.testng.ITestListener;

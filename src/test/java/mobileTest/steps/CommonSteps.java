@@ -1,4 +1,4 @@
-package mobileTest;
+package mobileTest.steps;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;
@@ -14,5 +14,4 @@ public class CommonSteps {
     public void assertSomething() {
         Assert.assertFalse(false);
     }
-
 }

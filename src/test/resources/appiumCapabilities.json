@@ -2,9 +2,5 @@
   "platformName": "android",
   "appium:platformVersion": "8.1.0",
   "appium:automationName": "uiautomator2",
-  "appium:udid": "4895180706479",
-  "appium:autoLaunch": false,
-  "appium:noReset": true,
-  "appium:enforceXPath1": true,
-  "appium:allowInvisibleElements": true
+  "appium:udid": "4895180706479"
 }

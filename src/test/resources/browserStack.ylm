@@ -1,0 +1,24 @@
+version: 2
+
+auth:
+  username: ekaterina_r2J6mp
+  access_key: HkTUFEYTgV7XP3nq3xxy
+
+run_settings:
+  project_name: BrowserStack Java Project
+  build_name: Build #1
+  test_framework: testng
+  framework_version: 7.10.1
+
+  test_suite: browserStack.BrowserStackTest
+
+  parallels: 1
+
+  platforms:
+    - os: Windows
+      osVersion: "11"
+      browser: Chrome
+      browserVersion: latest
+
+  source: browserstack-java
+
