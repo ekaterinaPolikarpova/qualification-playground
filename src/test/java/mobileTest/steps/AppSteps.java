@@ -1,13 +1,9 @@
 package mobileTest.steps;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.appmanagement.AndroidTerminateApplicationOptions;
 import io.qameta.allure.Step;
 import mobileTest.base.BaseSteps;
 import mobileTest.utils.DriverHelper;
-
-import java.time.Duration;
-import java.util.Optional;
 
 public class AppSteps extends BaseSteps {
 
