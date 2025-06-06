@@ -1,4 +1,4 @@
-package browserStack;
+package Utils;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
