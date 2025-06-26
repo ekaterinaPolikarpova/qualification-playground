@@ -9,7 +9,7 @@ public class OpenAppTest extends BaseTest {
     @Test
     public void openAppTest() {
         AppSteps.get().launchApp();
-        System.out.println("Current activity: " + driver.currentActivity());
+        AppSteps.get().scrollToPoint();
         MainScreen.get().clickSearchButton();
         MainScreen.get().inputTextToSearchingLine();
     }

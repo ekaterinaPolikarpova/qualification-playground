@@ -13,7 +13,7 @@ public class DriverHelper {
     private static DriverHelper instance;
     private AndroidDriver driver;
 
-    // Приватный конструктор
+
     private DriverHelper() {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -25,7 +25,6 @@ public class DriverHelper {
             UiAutomator2Options options = new UiAutomator2Options();
 
             Map<String, Object> capsMap = mapper.readValue(is, Map.class);
-//            DesiredCapabilities caps = new DesiredCapabilities();
             for (Map.Entry<String, Object> entry : capsMap.entrySet()) {
                 options.setCapability(entry.getKey(), entry.getValue());
             }
@@ -37,7 +36,6 @@ public class DriverHelper {
         }
     }
 
-    // Синглтон: получить инстанс DriverHelper
     public static synchronized DriverHelper get() {
         if (instance == null) {
             instance = new DriverHelper();
@@ -45,12 +43,10 @@ public class DriverHelper {
         return instance;
     }
 
-    // Вернуть драйвер
     public AndroidDriver getDriver() {
         return driver;
     }
 
-    // Завершить драйвер
     public void quitDriver() {
         if (driver != null) {
             driver.quit();

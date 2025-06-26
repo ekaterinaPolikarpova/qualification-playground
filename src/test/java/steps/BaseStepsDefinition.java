@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -39,12 +40,54 @@ public class BaseStepsDefinition {
         Assert.assertTrue(headingText.contains("Selenium"), "Page heading does not match expected value.");
     }
 
-//
-//    public void testWikipediaTitle() {
-//        driver.get("https://www.wikipedia.org/");
-//        String actualTitle = driver.getTitle();
-//        String expectedTitle = "Wikipedia";
-//        System.out.println("Title is: " + actualTitle);
-//        Assert.assertTrue(actualTitle.contains(expectedTitle), "Title does not match expected value.");
-//    }
+    @Given("I navigate to {string}")
+    public void navigateToWeb() {
+
+    }
+
+    @When("I click button {string}")
+    public void clickButton() {
+
+    }
+
+    @Then("the JavaScriptAlerts page is opened")
+    public void assertThatPageIsOpened() {
+
+    }
+
+    @Given("I have a person with name //d and age {int}")
+    public void initPersonData(String name, int age) {
+        Person person = new Person(name, age);
+    }
+
+    @When("I send the person's name to the alert and accept it")
+    public void sendNameAndAccept(){
+
+    }
+    @And("I send the person's age to the alert and accept it")
+    public void sendAge(){
+
+    }
+
+    @Then("The entered name {string} is displayed on the page")
+    public void assertThatExpectedTextIsDisplayed(String name){
+
+    }
+
+    @Then("The entered age {int} is displayed on the page")
+    public void assertThatExpectedAgeIsDisplayed(){
+
+    }
+
+//    Given I navigate to https://the-internet.herokuapp.com/
+//    When I click on JavaScript Alert button
+//    Then The JavaScriptAlerts page is opened
+//    Given I have a person with name "<name>" and age "<age>"
+//    When I click on Click for JS Prompt // исп 2 степ
+//    And I send the person's name to the alert and accept it
+//    Then The entered name text is displayed on the page
+//    When I click on Click for JS Prompt/исп 2 степ
+//    And I send the person's age to the alert and accept it/исп 7 степ
+//    Then The entered age text is displayed on the page
+
 }
