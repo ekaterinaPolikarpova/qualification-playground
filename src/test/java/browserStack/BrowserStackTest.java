@@ -1,10 +1,10 @@
 package browserStack;
 
 import Utils.BaseHelper;
-import Utils.JsonDataProvider;
 import Utils.TestCaseData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import mobileTest.steps.AllureStepsCheckTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -37,5 +37,10 @@ public class BrowserStackTest extends BaseHelper {
         String actualTitle = driver.getTitle();
         System.out.println("Title is: " + actualTitle);
         Assert.assertTrue(actualTitle.contains(title), "Title does not match expected value.");
+    }
+
+    @Test
+    public void allureStepsCheckTest() {
+        new AllureStepsCheckTest().allureStepsCheckTest();
     }
 }

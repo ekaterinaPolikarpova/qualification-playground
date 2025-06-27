@@ -2,32 +2,15 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Run Single Test') {
+        stage('Checkout'){
             steps {
-                echo '🚀 Запускаю тест BrowserStackTest.java...'
-                sh './gradlew test --tests "BrowserStackTest"'
+                git 'https://github.com/ekaterinaPolikarpova/qualification-playground.git'
             }
         }
-
-        stage('Archive Artifacts') {
-            steps {
-                echo '📦 Сохраняю артефакты...'
-                archiveArtifacts 'build/reports/**/*'
-            }
-        }
-
-        stage('Notifications') {
-            steps {
-                echo '📢 Отправляю уведомления...'
-                script {
-                    if (currentBuild.currentResult == 'SUCCESS') {
-                        echo '✅ Тест пройден успешно!'
-                    } else {
-                        echo '❌ Тест упал!'
-                    }
+            stage('Test'){
+                steps{
+                 sh './gradlew test --tests "BrowserStackTest"'
                 }
             }
-       }
-     }
-  }
+    }
+ }
