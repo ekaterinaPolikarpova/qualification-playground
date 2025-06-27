@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Run Single Test') {
             steps {
-                sh './gradlew test --tests "src/test/java/browserStack/BrowserStackTest.java"'
+                sh './gradlew test --tests "BrowserStackTest.java"'
                 sh './gradlew allureReport'
             }
         }
