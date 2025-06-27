@@ -12,7 +12,8 @@ pipeline {
 
         stage('Archive Artifacts') {
             steps {
-                echo '📦 Сохраняю артефакты...'
+             ${param} = '9999';
+                echo '${param}'
                 archiveArtifacts 'build/reports/**/*'
             }
         }
