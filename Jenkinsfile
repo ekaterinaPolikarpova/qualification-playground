@@ -6,7 +6,7 @@ pipeline {
         stage('Run Single Test') {
             steps {
                 echo '🚀 Запускаю тест BrowserStackTest.java...'
-                sh './gradlew test --tests "BrowserStackTest"'
+                sh './gradle test --tests "BrowserStackTest"'
             }
         }
 
