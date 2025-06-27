@@ -5,7 +5,7 @@ pipeline {
 
         stage('Run Single Test') {
             steps {
-                echo $param
+            sh "echo '${param}'"
                 sh './gradlew test --tests "BrowserStackTest"'
             }
         }
