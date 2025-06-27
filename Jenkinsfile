@@ -2,19 +2,47 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Single Test') {
+        // Stage 1: Подготовка окружения (филлер)
+        stage('Setup Environment') {
             steps {
-                sh './gradlew test --tests "BrowserStackTest.java"'
-                sh './gradlew allureReport'
+                echo '🔧 Настраиваю окружение...'
+                sh 'gradle --version'
+                sh 'java -version'
             }
         }
-    }
 
-    post {
-        always {
-            allure includeProperties: false,
-                   jdk: '',
-                   results: [[path: 'build/allure-results']]
+        stage('Install Dependencies') {
+            steps {
+                echo '📦 Загружаю зависимости...'
+                sh './gradlew dependencies --no-daemon'
+            }
         }
-    }
-}
+
+        stage('Run Single Test') {
+            steps {
+                echo '🚀 Запускаю тест BrowserStackTest.java...'
+                sh './gradlew test --tests "BrowserStackTest"'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                echo '📦 Сохраняю артефакты...'
+                archiveArtifacts 'build/reports/**/*'
+            }
+        }
+
+        stage('Notifications') {
+            steps {
+                echo '📢 Отправляю уведомления...'
+                script {
+                    if (currentBuild.currentResult == 'SUCCESS') {
+                        echo '✅ Тест пройден успешно!'
+                    } else {
+                        echo '❌ Тест упал!'
+                    }
+                }
+            }
+       }
+     }
+  }
