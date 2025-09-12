@@ -1,17 +1,30 @@
 plugins {
     id 'java'
+    id 'application'
     id 'io.qameta.allure' version '2.8.1'
 }
+
+application {
+    mainClass = 'org.example.Main'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+}
+
 
 def aspectJVersion = "1.9.20.1"
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
-configurations {
-    agent {
-        canBeResolved = true
-        canBeConsumed = true
+configurations.all {
+    resolutionStrategy {
+        force 'ch.qos.logback:logback-core:1.4.14',
+                'ch.qos.logback:logback-classic:1.4.14',
+                'org.slf4j:slf4j-api:2.0.9'
     }
 }
 
@@ -32,9 +45,14 @@ dependencies {
     testImplementation 'org.yaml:snakeyaml:1.33'
     implementation 'io.cucumber:cucumber-java:7.22.2'
     testImplementation 'io.cucumber:cucumber-testng:7.16.1'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
+    implementation('ch.qos.logback:logback-classic:1.4.14') {
+        exclude group: 'ch.qos.logback', module: 'logback-core' // Исключаем, чтобы добавить свою версию
+    }
+    implementation 'ch.qos.logback:logback-core:1.4.14'
 }
 
 test {
     useTestNG()
-    jvmArgs = [ "-javaagent:${configurations.agent.singleFile}" ]
+    jvmArgs = ["-javaagent:${configurations.agent.singleFile}"]
 }
