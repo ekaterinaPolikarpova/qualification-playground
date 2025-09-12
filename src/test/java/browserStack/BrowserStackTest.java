@@ -36,7 +36,8 @@ public class BrowserStackTest extends BaseHelper {
         driver.get(url);
         String actualTitle = driver.getTitle();
         System.out.println("Title is: " + actualTitle);
-        Assert.assertTrue(actualTitle.contains(title), "Title does not match expected value.");
+        String titleSecond = System.getenv("TITLE");
+        Assert.assertTrue(actualTitle.contains(titleSecond), "Title does not match expected value.");
     }
 
     @Test
