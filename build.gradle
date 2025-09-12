@@ -14,19 +14,11 @@ jar {
     }
 }
 
+
 def aspectJVersion = "1.9.20.1"
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
-
-
-
-configurations {
-    agent {
-        canBeResolved = true
-        canBeConsumed = true
-    }
-}
 
 configurations.all {
     resolutionStrategy {
