@@ -6,7 +6,7 @@
 
     <test name="BrowserStepsTest">
         <classes>
-            <class name="browserStack.BrowserStackSteps"/>
+            <class name="PreviousChanges.browserStack.BrowserStackStepsTest"/>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Run Single Test') {
+            PreviousChanges.PreviousChanges.steps {
+            sh "echo '${param}'"
+                sh './gradlew test --tests "BrowserStackTest"'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            PreviousChanges.PreviousChanges.steps {
+             ${param} = '9999';
+                echo '${param}'
+                archiveArtifacts 'build/reports/**/*'
+            }
+        }
+
+        stage('Notifications') {
+            PreviousChanges.PreviousChanges.steps {
+                echo '📢 Отправляю уведомления...'
+                script {
+                    if (currentBuild.currentResult == 'SUCCESS') {
+                        echo '✅ Тест пройден успешно!'
+                    } else {
+                        echo '❌ Тест упал!'
+                    }
+                }
+            }
+       }
+     }
+  }
