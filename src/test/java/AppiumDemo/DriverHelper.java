@@ -11,10 +11,11 @@ public class DriverHelper {
     public static void main(String[] args) {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "13");
-        caps.setCapability("deviceName", "SM-G960U1");
-        caps.setCapability("udid", "R58N65Y0TBV");
-        caps.setCapability("automationName", "UiAutomator2");
+        caps.setCapability("appium:udid", "R58N65Y0TBV");
+        caps.setCapability("appium:automationName", "UiAutomator2");
+        caps.setCapability("appium:appPackage", "com.google.android.youtube");
+        caps.setCapability("appium:appActivity", "com.google.android.youtube.HomeActivity");
+
 
         try {
             URL appiumServerUrl = new URL("http://127.0.0.1:4723");
