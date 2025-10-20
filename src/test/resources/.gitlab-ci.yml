@@ -1,0 +1,24 @@
+image: maven:3.9.6-eclipse-temurin-17
+variables:
+  MSG: "Hello from CI"
+stages:
+  - build
+  - execute
+build:
+  stage: build
+  script:
+    - echo $MSG > somefile.txt
+    - cat somefile.txt
+  artifacts:
+    when: always
+    paths:
+      - somefile.txt
+execute:
+  stage: execute
+  when: on_success
+  script:
+    - cat somefile.txt
+parallel:
+  stage: execute
+  script:
+    - cat somefile.txt
